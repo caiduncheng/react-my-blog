@@ -1,26 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import TopNav from './components/TopNav/index'
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+import { navList } from './constants'
+import Container from './components/Container'
+import Grid from './components/Grid'
+import ProfileCard from './components/ProfileCard'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+
+const App = () => (
+  <Router>
+    <div>
+      <TopNav navList={navList} />
+      <Container style={{marginTop: '83px'}}>
+        <Grid.Row>
+          <Grid.Col xl={9}>
+            <Switch>
+            </Switch>
+          </Grid.Col>
+          <Grid.Col xl={3}>
+            <ProfileCard />
+          </Grid.Col>
+        </Grid.Row>
+      </Container>
     </div>
-  );
-}
-
-export default App;
+  </Router>
+)
+export default App
