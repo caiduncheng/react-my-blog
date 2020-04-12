@@ -57,6 +57,7 @@ class TopNav extends React.Component {
                     <StyledTopNav>
                         {this.props.navList.map(item => (
                             <NavLink
+                                key={item.name}
                                 to={item.to}
                                 activeStyle={activeStyle}>
                                 <i className={item.icon} />

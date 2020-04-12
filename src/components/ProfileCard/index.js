@@ -2,6 +2,10 @@ import React from 'react'
 import styled from 'styled-components'
 import img from '../../assets/timg.jfif'
 import { Link } from 'react-router-dom'
+import { requestGetProfileInfo } from '../../reducers/profile'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+
 
 const StyledProfileCard = styled.div`
     background-color: #FFFFFF;
@@ -73,18 +77,23 @@ const StyledSocialMedia = styled.div`
 const SocialMedia = () => (
     <StyledSocialMedia>
         <a>
-            <i class="fab fa-github"></i>
+            <i className="fab fa-github"></i>
         </a>
         <a>
-            <i class="fab fa-weibo"></i>
+            <i className="fab fa-weibo"></i>
         </a>
         <a>
-            <i class="fab fa-linkedin-in"></i>
+            <i className="fab fa-linkedin-in"></i>
         </a>
     </StyledSocialMedia>
 )
 
 class ProfileCard extends React.Component {
+    componentDidMount() {
+        console.log(this.props)
+        this.props.requestGetProfileInfo()
+    }
+
     render() {
         return (
             <StyledProfileCard>
@@ -96,19 +105,19 @@ class ProfileCard extends React.Component {
                 <StyledInfoContainer>
                     <StyledInfo>
                         <Link>
-                            <span>0</span>
+                            <span>{this.props.blogCount}</span>
                             <span>日志</span>
                         </Link>
                     </StyledInfo>
                     <StyledInfo>
                         <Link>
-                            <span>0</span>
+                            <span>{this.props.categoryCount}</span>
                             <span>分类</span>
                         </Link>
                     </StyledInfo>
                     <StyledInfo>
                         <Link>
-                            <span>0</span>
+                            <span>{this.props.categoryCount}</span>
                             <span>标签</span>
                         </Link>
                     </StyledInfo>
@@ -119,4 +128,15 @@ class ProfileCard extends React.Component {
     }
 }
 
-export default ProfileCard
+const mapStateToProps = state => ({
+    blogCount: state.profile.blogCount,
+    categoryCount: state.profile.categoryCount,
+    tagCount: state.profile.tagCount
+})
+
+const mapDispatchToProps = dispatch =>
+    bindActionCreators({
+        requestGetProfileInfo
+    },dispatch)
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProfileCard)
