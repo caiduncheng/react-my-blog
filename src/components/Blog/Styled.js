@@ -5,6 +5,7 @@ export const BlogContainer = Styled.div`
     box-shadow: 0 4px 16px 0 rgba(0,0,0,0.2);
     color: rgba(51,51,51,0.9);
     background-color: #FFFFFF;
+    margin-bottom: 12px;
 `
 
 export const Title = Styled.h4`
@@ -21,6 +22,7 @@ export const InfoContainer = Styled.div`
 
 export const Info = Styled.span`
     padding-right: 20px;
+    color: rgba(0, 0, 0, .45);
 `
 
 export const BlogContent = Styled.div`

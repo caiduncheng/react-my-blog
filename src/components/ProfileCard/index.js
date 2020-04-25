@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import img from '../../assets/timg.jfif'
+import img from '../../assets/duck.jfif'
 import { Link } from 'react-router-dom'
 import { requestGetProfileInfo } from '../../reducers/profile'
 import { bindActionCreators } from 'redux'

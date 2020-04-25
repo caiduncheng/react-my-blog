@@ -20,3 +20,5 @@ export const navList = [
         icon: 'fas fa-user'
     }
 ]
+
+export const blogListPerPageCount = 5

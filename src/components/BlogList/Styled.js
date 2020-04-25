@@ -48,3 +48,26 @@ export const Info = Styled.div`
     float: left;
     margin-right: 20px;
 `
+
+export const Pagination = Styled.div`
+    padding: 10px 0;
+    text-align: center;
+
+    & a {
+        display: inline-block;
+        padding: 8px 16px;
+        border: 1px solid #ddd;
+        margin: 0 1px;
+        transition: background-color 0.3s;
+        color: #333;
+    }
+
+    & a:hover:not(.active-pagination) {
+        background-color: #ddd;
+    }
+
+    & a.active-pagination {
+        background-color: #1e90ff;
+        color: #FFFFFF;
+    }
+`

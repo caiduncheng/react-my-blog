@@ -4,16 +4,20 @@ import {requestGetBlogList} from '../../reducers/blogList'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { withRouter } from 'react-router-dom'
+import { blogListPerPageCount } from '../../constants'
 import Tag from '../Tag'
+import { getPaginationArray } from '../../utils'
+import ContentLoader from '../ContentLoader'
 
 class BlogList extends React.Component {
     constructor(props) {
         super(props)
 
         this.state = {
-            page: 1
+            currentPage: 1
         }
         this.onTitleClick = this.onTitleClick.bind(this)
+        this.onPagnitaionClick = this.onPagnitaionClick.bind(this)
     }
 
     onTitleClick(event, to) {
@@ -21,12 +25,30 @@ class BlogList extends React.Component {
         this.props.history.push(`/blog/${to}`)
     }
 
+    onPagnitaionClick(event, page) {
+        event.preventDefault()
+        this.setState({currentPage: page})
+    }
+
     componentDidMount() {
         this.props.requestGetBlogList()
     }
 
     render() {
-        const list = this.props.list.map((item, index) => (
+        const { currentPage } = this.state
+        const { blogList, status } = this.props
+        const totalPage = 10
+
+        if (status === 'pending' || status === '') {
+            return <ContentLoader height={650}/>
+        } else if (status === 'failure') {
+            return <div>数据加载失败</div>
+        }
+
+        const blogListStartIndex = (currentPage - 1) * blogListPerPageCount
+        const blogListEndIndex = blogListStartIndex + blogListPerPageCount
+        const listData = blogList.slice(blogListStartIndex, blogListEndIndex)
+        const list = listData.map((item, index) => (
             <Styled.Container key={item._id}>
                 <Styled.Title>
                     <a
@@ -61,16 +83,38 @@ class BlogList extends React.Component {
                 </Styled.InfoContainer>
             </Styled.Container>
         ))
+        const pageArray = getPaginationArray(currentPage, totalPage)
+        const pagination =
+            <Styled.Pagination>
+                <a href="#ignore" onClick={e => this.onPagnitaionClick(e, 1)}>
+                    &laquo;
+                </a>
+                {pageArray.map(page => (
+                    <a
+                        key={page}
+                        href="#ignore"
+                        className={currentPage === page ? 'active-pagination' : ''}
+                        onClick={e => this.onPagnitaionClick(e, page)}>
+                        {page}
+                    </a>
+                ))}
+                 <a href="#ignore" onClick={e => this.onPagnitaionClick(e, totalPage)}>
+                    &raquo;
+                </a>
+            </Styled.Pagination>
         return(
             <div>
                 {list}
+                {pagination}
             </div>
         )
     }
 }
 
 const mapStateToProps = state => ({
-    list: state.blogList.list
+    blogList: state.blogList.blogList,
+    count: state.blogList.count,
+    status: state.blogList.status
 })
 
 const mapDispatchToProps = dispatch =>

@@ -7,8 +7,9 @@ const types = {
 }
 
 const initState = {
-    list: [],
-    status: ''
+    blogList: [],
+    status: '',
+    count: 0
 }
 
 const startGetBlogList = () => ({
@@ -17,7 +18,8 @@ const startGetBlogList = () => ({
 
 const successGetBlogList = (data) => ({
     type: types.SUCCESS_GET_BLOG_LIST,
-    list: data.blogs
+    blogList: data.blogs,
+    count: data.count
 })
 
 const failureGetBlogList = () => ({
@@ -33,7 +35,8 @@ export default (state = initState, action) => {
             }
         case types.SUCCESS_GET_BLOG_LIST:
             return {
-                list: action.list,
+                blogList: action.blogList,
+                count: action.count,
                 status: 'success'
             }
         case types.FAILURE_GET_BLOG_LIST:
@@ -49,7 +52,6 @@ const requestGetBlogList = () => dispatch => {
     dispatch(startGetBlogList())
     return axios.get('/api/blogs').then(res => {
         const data = res.data.data
-        console.log(data)
         dispatch(successGetBlogList(data))
         return 'success'
     }).catch(err => {

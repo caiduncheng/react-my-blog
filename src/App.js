@@ -7,7 +7,8 @@ import Grid from './components/Grid'
 import ProfileCard from './components/ProfileCard'
 import BlogList from './components/BlogList'
 import Blog from './components/Blog'
-
+import Footer from './components/Footer'
+import Tags from './components/Tags'
 
 
 const App = () => (
@@ -21,6 +22,7 @@ const App = () => (
               <Route exact path="/" component={BlogList} />
               <Route exact path="/blogs" component={BlogList} />
               <Route path="/blog/:id" component={Blog} />
+              <Route path="/tags" component={Tags} />
             </Switch>
           </Grid.Col>
           <Grid.Col xl={3}>
@@ -28,6 +30,7 @@ const App = () => (
           </Grid.Col>
         </Grid.Row>
       </Container>
+      {/* <Footer /> */}
     </div>
   </Router>
 )

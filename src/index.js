@@ -4,8 +4,8 @@ import { Provider } from 'react-redux'
 import { BrowserRouter as Router } from 'react-router-dom'
 import store from './store'
 import './index.css';
+import 'highlight.js/styles/github.css';
 import App from './App';
-
 // import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(

@@ -12,6 +12,26 @@ export const getPixelString = (value, defaultValue) => {
     }
 }
 
+export const getPaginationArray = (currentPage, totalPage) => {
+  const arr = []
+  for(let i = 0; i <= totalPage; i++) {
+    arr.push(i)
+  }
+  if(totalPage <= 5) {
+    return arr.slice(1, totalPage + 1)
+  } else {
+    if (currentPage <= 3) {
+      return arr.slice(1, 6)
+    } else if(totalPage - currentPage === 1){
+      return arr.slice(currentPage - 3, totalPage + 1)
+    } else if (totalPage === currentPage) {
+      return arr.slice(currentPage - 4, totalPage + 1)
+    } else {
+      return arr.slice(currentPage - 2, currentPage + 3)
+    }
+  }
+}
+
 // 标签颜色组
 export const colorStyle = {
     magenta: {
