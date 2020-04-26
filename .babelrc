@@ -1,5 +1,9 @@
 {
-    "plugins": [
+  "presets": [
+      "react-app"
+    ]
+  ,
+  "plugins": [
       ["import", {
         "libraryName": "antd",
         "libraryDirectory": "es",

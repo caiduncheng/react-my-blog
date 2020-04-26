@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button } from 'antd';
+import { Button, Badge } from 'antd'
 
 const Tags = () => (
     <div>
@@ -7,6 +7,7 @@ const Tags = () => (
         <Button>Default</Button>
         <Button type="dashed">Dashed</Button>
         <Button type="link">Link</Button>
+        <Badge count={5}></Badge>
     </div>
 )
 
