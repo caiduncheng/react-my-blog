@@ -1,7 +1,7 @@
 {
     "apps": {
         "name": "wuwu",
-        "script": "./bin/www",
+        "script": "./scripts/start.js",
         "cwd": "./",
         "args": "",
         "interpreter": "",
