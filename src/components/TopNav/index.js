@@ -3,6 +3,8 @@ import styled, { withTheme } from 'styled-components'
 import Container from '../Container/index'
 import { NavLink } from 'react-router-dom'
 
+const activeLinkClassName = 'active-link'
+const responsiveTopNavClassName = 'reponsize-top-nav'
 
 const activeStyle = {
     color: 'white',
@@ -16,6 +18,7 @@ const StyledTopNav = styled.nav`
     position: relative;
     min-height: 22px;
     font-weight: 300;
+    transition: height .3s;
 
 
     & a {
@@ -36,6 +39,46 @@ const StyledTopNav = styled.nav`
     & i {
         font-size: 12px;
     }
+
+    & .icon {
+        display: none;
+    }
+
+    @media only screen and (max-width: 575px) {
+        & a:not(.${activeLinkClassName}) {
+            display: none;
+        }
+
+        & a.icon {
+            display: block;
+            float: right;
+        }
+
+        &.${responsiveTopNavClassName} {
+            padding-top: 50px;
+            height: 100px;
+        }
+
+        &.${responsiveTopNavClassName} a {
+            display: block;
+            float: none;
+        }
+
+        &.${responsiveTopNavClassName} .icon {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+
+        &.${responsiveTopNavClassName} a.${activeLinkClassName} {
+            width: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+
+    }
 `
 
 const StyledBackground = styled(Container)`
@@ -49,22 +92,64 @@ const StyledBackground = styled(Container)`
 
 `
 
+const StyledIcon = styled.a`
+    font-size: 15px;
+`
+
 class TopNav extends React.Component {
+    constructor(props) {
+        super(props)
+
+        this.state = {
+            className : ''
+        }
+
+        this.onIconClick = this.onIconClick.bind(this)
+        this.onLinkClick = this.onLinkClick.bind(this)
+    }
+
+    onIconClick(e) {
+        e.preventDefault()
+        if(this.state.className === '') {
+            this.setState({
+                className: responsiveTopNavClassName
+            })
+        } else {
+            this.setState({
+                className: ''
+            })
+        }
+    }
+
+    onLinkClick() {
+        this.setState({
+            className: ''
+        })
+    }
+
     render() {
         return (
-            <StyledBackground fluid>
-                <Container>
-                    <StyledTopNav>
+            <StyledBackground fluid lrPadding={0}>
+                <Container lrPadding={0}>
+                    <StyledTopNav className={this.state.className}>
                         {this.props.navList.map(item => (
                             <NavLink
                                 key={item.name}
                                 to={item.to}
+                                activeClassName={activeLinkClassName}
+                                onClick={this.onLinkClick}
                                 activeStyle={activeStyle}>
                                 <i className={item.icon} />
                                 &nbsp;
                                 {item.name}
                             </NavLink>
                         ))}
+                        <StyledIcon
+                            className="icon"
+                            href="#ignore"
+                            onClick={this.onIconClick}>
+                            &#9776;
+                        </StyledIcon>
                     </StyledTopNav>
                 </Container>
             </StyledBackground>

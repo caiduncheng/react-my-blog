@@ -6,6 +6,7 @@ const StyledContentLoaderContainer = Styled.div`
     border: 1px solid #FFFFFF;
     padding: 0 20px;
     height: ${({ height }) => height + 'px'};
+    box-shadow: 0 4px 16px 0 rgba(0,0,0,0.2);
 `
 
 const StyledContentContainer = Styled.div`

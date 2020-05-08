@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
+import { getPixelString } from '../../utils'
 
 const getMaxWidth = css`
     @media only screen and (min-width: 576px) {
@@ -22,6 +23,7 @@ const getMaxWidth = css`
 const Container = styled.div`
     width: 100%;
     margin: 0 auto;
+    padding: ${( { lrPadding }) => getPixelString(lrPadding, 15)};
     ${({ fluid }) => (fluid ? undefined: getMaxWidth)}
 `
 

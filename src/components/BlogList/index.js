@@ -8,6 +8,7 @@ import { blogListPerPageCount } from '../../constants'
 import Tag from '../Tag'
 import { getPaginationArray } from '../../utils'
 import ContentLoader from '../ContentLoader'
+import ScrollUp from '../ScrollUp'
 
 class BlogList extends React.Component {
     constructor(props) {
@@ -36,8 +37,8 @@ class BlogList extends React.Component {
 
     render() {
         const { currentPage } = this.state
-        const { blogList, status } = this.props
-        const totalPage = 10
+        const { blogList, status, count } = this.props
+        const totalPage = Math.ceil(count / blogListPerPageCount)
 
         if (status === 'pending' || status === '') {
             return <ContentLoader height={650}/>
