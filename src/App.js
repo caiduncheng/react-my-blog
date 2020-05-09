@@ -11,11 +11,12 @@ import Footer from './components/Footer'
 import Tags from './components/Tags'
 import ScrollUp from './components/ScrollUp'
 import ArticleDirectory from './components/ArticleDirectory'
+import './index.css';
 
 
 const App = () => (
   <Router>
-    <div>
+    <div class="app">
       <TopNav navList={navList} />
       <Container  lrPadding={0} style={{marginTop: '83px'}}>
         <Grid.Row>

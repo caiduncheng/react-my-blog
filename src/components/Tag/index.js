@@ -10,7 +10,8 @@ const StyledTag = Styled.div`
     background-color: #fafafa;
     border: 1px solid #d9d9d9;
     line-height: 1.5;
-    border-radius: 4px;
+    border-radius: 4px;    
+    cursor: ${({ pointer }) => pointer ? 'pointer' : undefined };
 
     & a, & span {
         color: ${({ color }) => color && colorStyle[color]['color']};
@@ -38,7 +39,7 @@ class Tag extends React.Component {
     }
     render() {
         return (
-            <StyledTag color={this.state.color}>
+            <StyledTag color={this.state.color} pointer={this.props.pointer}>
                 <span>
                     {this.props.children}
                 </span>

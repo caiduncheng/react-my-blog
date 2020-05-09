@@ -71,6 +71,7 @@ const StyledSocialMedia = styled.div`
     padding-bottom: 20px;
 
     & a {
+        color: #000000;
         margin-right: 10px;
     }
 `

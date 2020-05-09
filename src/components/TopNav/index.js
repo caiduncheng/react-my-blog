@@ -18,7 +18,6 @@ const StyledTopNav = styled.nav`
     position: relative;
     min-height: 22px;
     font-weight: 300;
-    transition: height .3s;
 
 
     & a {
@@ -56,7 +55,6 @@ const StyledTopNav = styled.nav`
 
         &.${responsiveTopNavClassName} {
             padding-top: 50px;
-            height: 100px;
         }
 
         &.${responsiveTopNavClassName} a {
