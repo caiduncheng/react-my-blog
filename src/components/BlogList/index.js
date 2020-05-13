@@ -9,6 +9,7 @@ import Tag from '../Tag'
 import { getPaginationArray } from '../../utils'
 import ContentLoader from '../ContentLoader'
 import ScrollUp from '../ScrollUp'
+import { Skeleton } from 'antd';
 
 class BlogList extends React.Component {
     constructor(props) {
@@ -41,7 +42,7 @@ class BlogList extends React.Component {
         const totalPage = Math.ceil(count / blogListPerPageCount)
 
         if (status === 'pending' || status === '') {
-            return <ContentLoader height={650}/>
+            return <Skeleton active />
         } else if (status === 'failure') {
             return <div>数据加载失败</div>
         }
