@@ -42,7 +42,7 @@ class BlogList extends React.Component {
         const totalPage = Math.ceil(count / blogListPerPageCount)
 
         if (status === 'pending' || status === '') {
-            return <Skeleton active />
+            return <ContentLoader height={600}/>
         } else if (status === 'failure') {
             return <div>数据加载失败</div>
         }

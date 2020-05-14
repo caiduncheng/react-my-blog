@@ -5,6 +5,7 @@ import { navList } from './constants'
 import Container from './components/Container'
 import Grid from './components/Grid'
 import ProfileCard from './components/ProfileCard'
+import TagCard from './components/TagsCard'
 import BlogList from './components/BlogList'
 import Blog from './components/Blog'
 import Footer from './components/Footer'
@@ -30,6 +31,7 @@ const App = () => (
           </Grid.Col>
           <Grid.Col xs={0} sm={0} md={0} lg={3.5} xl={3}>
             <ProfileCard />
+            <TagCard />
             <Route path="/blog/:id" component={ArticleDirectory} />
           </Grid.Col>
         </Grid.Row>
