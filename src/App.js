@@ -8,7 +8,7 @@ import ProfileCard from './components/ProfileCard'
 import TagCard from './components/TagsCard'
 import BlogList from './components/BlogList'
 import Blog from './components/Blog'
-import Footer from './components/Footer'
+import Categories from './components/Categories'
 import Tags from './components/Tags'
 import ScrollUp from './components/ScrollUp'
 import ArticleDirectory from './components/ArticleDirectory'
@@ -27,6 +27,7 @@ const App = () => (
               <Route exact path="/blogs" component={BlogList} />
               <Route path="/blog/:id" component={Blog} />
               <Route path="/tags" component={Tags} />
+              <Route path="/categories" component={Categories} />
             </Switch>
           </Grid.Col>
           <Grid.Col xs={0} sm={0} md={0} lg={3.5} xl={3}>
