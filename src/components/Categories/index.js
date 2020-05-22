@@ -20,7 +20,7 @@ class Categories extends React.Component {
     }
 
     handleSubmit = () => {
-        axios.post('/admin/api/blogs', this.state)
+        axios.post('/api/blogs', this.state)
     }
 
     render() {
