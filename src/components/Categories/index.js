@@ -23,6 +23,10 @@ class Categories extends React.Component {
         axios.post('/admin/api/blogs', {...this.state, tags: ['JavaScript', 'Webpack'], category: 'JavaScript'})
     }
 
+    componentDidMount = () => {
+        axios.post('/admin/api/tags', { name: 'JavaScript' })
+    }
+
     render() {
         return (
             <div>
