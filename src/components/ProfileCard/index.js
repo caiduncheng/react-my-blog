@@ -103,7 +103,7 @@ class ProfileCard extends React.Component {
                     <img src={img} alt="avatar"></img>
                 </StyledImageContainer>
                 <StyledName>Caidc</StyledName>
-                <StyledDescription>Stay foolish, stay hungry.</StyledDescription>
+                <StyledDescription>奔涌吧，后浪</StyledDescription>
                 <StyledInfoContainer>
                     <StyledInfo>
                         <Link>
