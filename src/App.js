@@ -23,7 +23,7 @@ const App = () => (
         <Grid.Row>
           <Grid.Col xs={12} sm={12} md={12} lg={8.5} xl={9}>
             <Switch>
-              <Route exact path="/" component={BlogList} />
+              <Route exact path="/" component={BlogList}/>
               <Route exact path="/blogs" component={BlogList} />
               <Route path="/blog/:id" component={Blog} />
               <Route path="/tags" component={Tags} />
