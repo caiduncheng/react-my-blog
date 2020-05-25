@@ -22,11 +22,7 @@ class Categories extends React.Component {
     handleSubmit = () => {
         axios.post('/admin/api/blogs', {...this.state, tags: ['JavaScript'], category: 'JavaScript'})
     }
-
-    componentDidMount = () => {
-        // axios.post('/admin/api/tags', { name: 'JavaScript' })
-    }
-
+    
     render() {
         return (
             <div>

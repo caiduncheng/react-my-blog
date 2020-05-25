@@ -26,12 +26,12 @@ const App = () => (
               <Route exact path="/" component={BlogList}/>
               <Route exact path="/blogs" component={BlogList} />
               <Route path="/blog/:id" component={Blog} />
-              <Route path="/tags" component={Tags} />
-              <Route path="/categories" component={Categories} />
+              <Route path="/tags" />
+              <Route path="/categories"/>
             </Switch>
           </Grid.Col>
           <Grid.Col xs={0} sm={0} md={0} lg={3.5} xl={3}>
-            <ProfileCard />
+            <ProfileCard />            
             <TagCard />
             <Route path="/blog/:id" component={ArticleDirectory} />
           </Grid.Col>
