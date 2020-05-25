@@ -1,9 +1,9 @@
 import axios from 'axios'
 
 const types = {
-    START_GET_BLOG: 'blogList/START_GET_BLOG',
-    SUCCESS_GET_BLOG: 'blogList/SUCCESS_GET_BLOG',
-    FAILURE_GET_BLOG: 'blogList/FAILURE_GET_BLOG'
+    START_GET_BLOG: 'blog/START_GET_BLOG',
+    SUCCESS_GET_BLOG: 'blog/SUCCESS_GET_BLOG',
+    FAILURE_GET_BLOG: 'blog/FAILURE_GET_BLOG'
 }
 
 const initState = {

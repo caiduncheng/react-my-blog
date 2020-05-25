@@ -8,8 +8,6 @@ import { blogListPerPageCount } from '../../constants'
 import Tag from '../Tag'
 import { getPaginationArray } from '../../utils'
 import ContentLoader from '../ContentLoader'
-import ScrollUp from '../ScrollUp'
-import { Skeleton } from 'antd';
 
 class BlogList extends React.Component {
     constructor(props) {

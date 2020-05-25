@@ -40,7 +40,7 @@ class Blog extends React.Component {
                     <Styled.Info>
                     <i className="fas fa-tag" />&nbsp;&nbsp;
                         {blog.tags.map(tag => (
-                            <Tag random={true} key={tag} random={true}>
+                            <Tag random={true} key={tag} >
                                 {tag}
                             </Tag>
                         ))}
