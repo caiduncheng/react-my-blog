@@ -5,14 +5,8 @@ import { Link } from 'react-router-dom'
 import { requestGetProfileInfo } from '../../reducers/profile'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
+import { Card } from '../Card'
 
-
-export const StyledProfileCard = styled.div`
-    background-color: #FFFFFF;
-    box-shadow: 0 4px 16px 0 rgba(0,0,0,0.2);
-    text-align: center;
-    margin-bottom: 20px;
-`
 const StyledImageContainer = styled.div`
     padding-top: 30px;
     height: 150px;
@@ -98,7 +92,7 @@ class ProfileCard extends React.Component {
 
     render() {
         return (
-            <StyledProfileCard>
+            <Card>
                 <StyledImageContainer>
                     <img src={img} alt="avatar"></img>
                 </StyledImageContainer>
@@ -125,7 +119,7 @@ class ProfileCard extends React.Component {
                     </StyledInfo>
                 </StyledInfoContainer>
                 <SocialMedia />
-            </StyledProfileCard>
+            </Card>
         )
     }
 }
