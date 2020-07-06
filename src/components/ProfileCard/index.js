@@ -92,30 +92,24 @@ class ProfileCard extends React.Component {
 
     render() {
         return (
-            <Card>
+            <Card center>
                 <StyledImageContainer>
                     <img src={img} alt="avatar"></img>
                 </StyledImageContainer>
                 <StyledName>Caidc</StyledName>
                 <StyledDescription>奔涌吧，后浪</StyledDescription>
                 <StyledInfoContainer>
-                    <StyledInfo>
-                        <Link>
+                    <StyledInfo>                        
                             <span>{this.props.blogCount}</span>
-                            <span>日志</span>
-                        </Link>
+                            <span>日志</span>                        
                     </StyledInfo>
-                    <StyledInfo>
-                        <Link>
+                    <StyledInfo>                        
                             <span>{this.props.categoryCount}</span>
-                            <span>分类</span>
-                        </Link>
+                            <span>分类</span>                        
                     </StyledInfo>
-                    <StyledInfo>
-                        <Link>
+                    <StyledInfo>                        
                             <span>{this.props.categoryCount}</span>
-                            <span>标签</span>
-                        </Link>
+                            <span>标签</span>                        
                     </StyledInfo>
                 </StyledInfoContainer>
                 <SocialMedia />

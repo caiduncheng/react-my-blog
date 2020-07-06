@@ -9,7 +9,7 @@ const StyledTag = Styled.div`
     font-size : 12px;
     background-color: #fafafa;
     border: 1px solid #d9d9d9;
-    line-height: 1.5;
+    line-height: 20px;
     border-radius: 4px;    
     cursor: ${({ pointer }) => pointer ? 'pointer' : undefined };
 

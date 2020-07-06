@@ -5,7 +5,7 @@ export const navList = [
         icon: 'fas fa-home'
     },
     {
-        name: '分类',
+        name: '归档',
         to: '/categories',
         icon: 'fas fa-th'
     },
