@@ -8,12 +8,12 @@
 }
 
 html {
-    background-color: #F4F5F5;
+    /* background-color: #F4F5F5; */
     min-height: 100%;
 }
 
 body {
-    background-color: #F4F5F5;
+    /* background-color: #F4F5F5; */
     font-size: 16px;
     font-family: -apple-system, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
     color: #333;
@@ -21,4 +21,5 @@ body {
 
 a, a:link, a:visited {
     text-decoration: none;
+    color: #2479CC;
 }

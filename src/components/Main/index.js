@@ -24,6 +24,13 @@ const Title = styled.h1`
     margin-bottom: 25px;
 `
 
+const Content = styled.div`
+    font-size: 16px;
+    line-height: 1.8;
+    & p {
+        margin-top: 15px;
+    }
+`
 
 class Main extends Component {
     render() {
@@ -31,7 +38,13 @@ class Main extends Component {
             <StyledMain>
                 <section>
                     <Article>
-                        <Title></Title>
+                        <Title>React</Title>
+                        <Content>
+                            <p>Ullamco qui in nulla laboris dolor sunt culpa nostrud labore dolor.</p>
+                            <p>
+                                <a>阅读全文 »</a>
+                            </p>
+                        </Content>
                     </Article>
                 </section>
             </StyledMain>

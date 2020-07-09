@@ -14,6 +14,7 @@ import TagBlog from './components/TagBlog'
 import ScrollUp from './components/ScrollUp'
 import ArticleDirectory from './components/ArticleDirectory'
 import SideBar from './components/SideBar'
+import Main from './components/Main'
 import './index.css';
 import './style/iconfont.css'
 
@@ -22,6 +23,7 @@ const App = () => (
   <Router>
     <div className="app">
       <SideBar />
+      <Main />
       {/* <TopNav navList={navList} />
       <Container  lrPadding={0} style={{marginTop: '83px'}}>
         <Grid.Row>
