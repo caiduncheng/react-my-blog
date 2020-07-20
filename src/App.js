@@ -15,13 +15,16 @@ import ScrollUp from './components/ScrollUp'
 import ArticleDirectory from './components/ArticleDirectory'
 import SideBar from './components/SideBar'
 import Main from './components/Main'
-import './index.css';
+import Archives from './components/Archives'
+import GlobalStyle from './style/style'
 import './style/iconfont.css'
-
+import Header from '@/components/Header'
 
 const App = () => (
   <Router>
+    <GlobalStyle />
     <div className="app">
+      <Header />
       <SideBar />
       <Main />
       {/* <TopNav navList={navList} />

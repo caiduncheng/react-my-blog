@@ -4,12 +4,13 @@ import Styled from 'styled-components'
 
 const StyledTag = Styled.div`
     display: inline-block;
-    padding: 0 8px;
-    margin-right: 7px;
+    padding: 0 15px;
+    margin: 0 15px 10px 0;
     font-size : 12px;
     background-color: #fafafa;
     border: 1px solid #d9d9d9;
-    line-height: 20px;
+    height: 40px;
+    line-height: 40px;
     border-radius: 4px;    
     cursor: ${({ pointer }) => pointer ? 'pointer' : undefined };
 

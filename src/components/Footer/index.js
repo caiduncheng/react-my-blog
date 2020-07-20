@@ -2,22 +2,17 @@ import React from 'react'
 import Styled from 'styled-components'
 
 const StyledFooter = Styled.footer`
-    text-align: center;
-    font-size: 18px;
-    line-height: 2;
-    color: #3c3b3b;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    height: 100px;
-    width: 100%;
+   line-height: 1.8;
+   text-align: center;
+   padding: 15px;
+   border-top: 1px solid #fff;
+   font-size: .9em;
 `
 
 
 
 const Footer = () => (
-    <StyledFooter>
-        @2020 CAIDC
+    <StyledFooter>        
     </StyledFooter>
 )
 

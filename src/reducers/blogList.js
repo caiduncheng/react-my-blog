@@ -37,7 +37,7 @@ export default (state = initState, action) => {
             return {
                 blogList: action.blogList,
                 count: action.count,
-                status: 'success'
+                status: 'succeess'
             }
         case types.FAILURE_GET_BLOG_LIST:
             return {

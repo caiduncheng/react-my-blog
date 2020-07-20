@@ -34,7 +34,6 @@ export default (state = initState, action) => {
                 status: 'pending'
             }
         case types.SUCCESS_GET_BLOG:
-            console.log(action)
             return {
                 data: action.data,
                 status: 'success'

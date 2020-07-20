@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
 import styled from 'styled-components'
 import avatar from '../../assets/duck.jfif'
+import {Link} from 'react-router-dom'
+import { media } from '@/style/style'
 
 const StyledSideBar = styled.div`
     width: 250px;
@@ -11,6 +13,21 @@ const StyledSideBar = styled.div`
     background-color: #202020;
     overflow: auto;
     z-index: 1;
+    
+    ${media.pad} {
+        & {
+            width: 75px;
+        }
+    }
+
+    ${media.mobile} {
+        & {
+            transition: transform .2s cubic-bezier(.4,.01,.165,.99);
+        }
+        &.behavior {
+            transform: translate3D(-250px,0,0);
+        }
+    }
 `
 
 const Profile = styled.div`
@@ -36,10 +53,28 @@ const Profile = styled.div`
         text-align: center;
         font-size: 18px;
     }
+
+    ${media.pad} {
+        & span {
+            display: none;
+        }
+
+        & a, & img {
+            width: 40px;
+            height: 40px;
+            border-radius: 40px;
+        }
+    }
+
+    ${media.mobile} {
+        & span {
+            display: none;
+        }
+    }
 `
 
 const List = styled.ul`
-    margin-bottom: 0 0 20px;   
+    margin-bottom: 0 0 20px;     
 `
 
 const Item = styled.li`
@@ -52,6 +87,9 @@ const Item = styled.li`
         padding-left: 25px;
         display: block;
         color: #999;
+        &:hover {
+            color: rgba(153,153,153,.8);
+        }
         & span, & i {
             display: inline-block;
             vertical-align: middle;
@@ -65,6 +103,21 @@ const Item = styled.li`
             margin-right: 25px;
         }
     }    
+
+    ${media.pad} {
+        & a {
+            padding: 0;
+            & i {
+                font-size: 18px;
+                display: block;
+                margin: 0 auto;
+            }
+
+            & span {
+                display: none;
+            }
+        }
+    }
 `
 
 
@@ -72,7 +125,7 @@ const Item = styled.li`
 class SideBar extends Component {
     render() {
         return (
-            <StyledSideBar>
+            <StyledSideBar className="behavior">
                 <Profile>
                     <a href="/">
                         <img src={avatar} alt="avatar"/>
@@ -81,28 +134,28 @@ class SideBar extends Component {
                 </Profile>
                 <List>
                     <Item>
-                        <a>
+                        <Link to="/">
                             <i className="iconfont icon-home"></i>
                             <span>首页</span>
-                        </a>
+                        </Link>
                     </Item>
                     <Item>
-                        <a>
+                        <Link to="/archives">
                             <i className="iconfont icon-archive"></i>
                             <span>归档</span>
-                        </a>
+                        </Link>
                     </Item>
                     <Item>
-                        <a>
+                        <Link to="/tags">
                             <i className="iconfont icon-tags"></i>
                             <span>标签</span>
-                        </a>
+                        </Link>
                     </Item>
                     <Item>
-                        <a>
+                        <Link to="/about">
                             <i className="iconfont icon-user1"></i>
                             <span>关于</span>
-                        </a>
+                        </Link>
                     </Item>
                 </List>
             </StyledSideBar>
