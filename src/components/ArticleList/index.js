@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import styled from 'styled-components'
-import { Title, StyledArticle } from '@/style/style'
+import { Title, StyledArticle, media } from '@/style/style'
 import { connect } from 'react-redux'
 import {requestGetBlogList} from '@/reducers/blogList'
 import Pagination from './Pagination'
@@ -15,6 +15,11 @@ const Meta = styled.div`
     line-height: 2;
     width: auto;
     text-align: right;
+
+    ${media.mobile} {
+        display: none;
+    }
+
 `
 
 const LoadingContainer = styled.div`    

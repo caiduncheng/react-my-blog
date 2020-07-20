@@ -1,6 +1,7 @@
 import { createGlobalStyle } from 'styled-components'
 import styled, { css } from 'styled-components'
 
+
 const GlobalStyle = createGlobalStyle`
 
     * {
@@ -29,6 +30,11 @@ const GlobalStyle = createGlobalStyle`
         color: #666;
     }
 `
+
+export const media = {
+    pad: '@media only screen and (max-width: 1024px) and (min-width: 769px)',
+    mobile: '@media screen and (max-width: 768px)'
+}
 
 export const Title = styled.h1`
     color: #333333;
@@ -61,11 +67,13 @@ export const StyledArticle = styled.article`
     & a {
         color: #2479CC;
     }
-`
 
-export const media = {
-    pad: '@media only screen and (max-width: 1024px) and (min-width: 769px)',
-    mobile: '@media screen and (max-width: 768px)'
-}
+    ${media.mobile} {
+        & {
+            background-color: #fff;
+            padding: 10px;
+        }
+    }
+`
 
 export default GlobalStyle
