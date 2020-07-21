@@ -1,6 +1,10 @@
 import { createGlobalStyle } from 'styled-components'
 import styled, { css } from 'styled-components'
 
+export const media = {
+    pad: '@media only screen and (max-width: 1024px) and (min-width: 769px)',
+    mobile: '@media screen and (max-width: 768px)'
+}
 
 const GlobalStyle = createGlobalStyle`
 
@@ -20,6 +24,11 @@ const GlobalStyle = createGlobalStyle`
 
     a {        
         color: #2479CC;    
+        text-decoration: none;
+    }
+
+    h1 {
+        font-weight: bold;
     }
 
     body {
@@ -28,20 +37,26 @@ const GlobalStyle = createGlobalStyle`
         /* font-family: -apple-system, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif; */
         font-family: "Helvetica Neue",Arial,"Hiragino Sans GB",STHeiti,"Microsoft YaHei";
         color: #666;
+        transition: transform .2s cubic-bezier(.4,.01,.165,.99),-webkit-transform .2s cubic-bezier(.4,.01,.165,.99);
+
+        ${media.mobile} {
+            &.side {
+               position: fixed;
+                transform: translate3D(250px, 0, 0);
+            }
+        }
     }
 `
 
-export const media = {
-    pad: '@media only screen and (max-width: 1024px) and (min-width: 769px)',
-    mobile: '@media screen and (max-width: 768px)'
-}
-
-export const Title = styled.h1`
+export const TitleStyle = css`
     color: #333333;
     font-size: 2em;
     font-weight: 300;    
     line-height: 35px;
     margin-bottom: 25px;
+    ${media.mobile} {
+        padding: 5px 0 10px;
+    }
 `
 
 export const StyledArticle = styled.article`
@@ -66,6 +81,10 @@ export const StyledArticle = styled.article`
     }
     & a {
         color: #2479CC;
+    }
+
+    & h1 a {
+        color: #333;
     }
 
     ${media.mobile} {

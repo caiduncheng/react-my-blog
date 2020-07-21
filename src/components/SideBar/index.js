@@ -3,8 +3,9 @@ import styled from 'styled-components'
 import avatar from '../../assets/duck.jfif'
 import {Link} from 'react-router-dom'
 import { media } from '@/style/style'
+import { connect } from 'react-redux'
 
-const StyledSideBar = styled.div`
+const StyledSideBar = styled.nav`
     width: 250px;
     height: 100%;
     position: fixed;
@@ -33,6 +34,10 @@ const StyledSideBar = styled.div`
 const Profile = styled.div`
     padding-top: 40px;
     padding-bottom: 10px;
+
+    ${media.pad} {
+        padding-top: 20px;
+    }
 
     & a {
         display: block;
@@ -120,45 +125,61 @@ const Item = styled.li`
     }
 `
 
+const SideBarMask = styled.div`
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 999;
+    overflow: hidden;
+    display: ${({sideBarOpened}) => sideBarOpened ? 'block' : 'none'};
+    background-color: rgba(255, 255, 255, 0);
+`
 
-
+@connect(
+    state => state.app
+)
 class SideBar extends Component {
     render() {
         return (
-            <StyledSideBar className="behavior">
-                <Profile>
-                    <a href="/">
-                        <img src={avatar} alt="avatar"/>
-                    </a>
-                    <span>Caidc的博客</span>
-                </Profile>
-                <List>
-                    <Item>
-                        <Link to="/">
-                            <i className="iconfont icon-home"></i>
-                            <span>首页</span>
-                        </Link>
-                    </Item>
-                    <Item>
-                        <Link to="/archives">
-                            <i className="iconfont icon-archive"></i>
-                            <span>归档</span>
-                        </Link>
-                    </Item>
-                    <Item>
-                        <Link to="/tags">
-                            <i className="iconfont icon-tags"></i>
-                            <span>标签</span>
-                        </Link>
-                    </Item>
-                    <Item>
-                        <Link to="/about">
-                            <i className="iconfont icon-user1"></i>
-                            <span>关于</span>
-                        </Link>
-                    </Item>
-                </List>
-            </StyledSideBar>
+            <>
+                {/* <SideBarMask sideBarOpened={this.props.sideBarOpened}/> */}
+                <StyledSideBar className="behavior" sideBarOpened={this.props.sideBarOpened}>               
+                    <Profile>
+                        <a href="/">
+                            <img src={avatar} alt="avatar"/>
+                        </a>
+                        <span>Caidc的博客</span>
+                    </Profile>
+                    <List>
+                        <Item>
+                            <Link to="/">
+                                <i className="iconfont icon-home"></i>
+                                <span>首页</span>
+                            </Link>
+                        </Item>
+                        <Item>
+                            <Link to="/archives">
+                                <i className="iconfont icon-archive"></i>
+                                <span>归档</span>
+                            </Link>
+                        </Item>
+                        <Item>
+                            <Link to="/tags">
+                                <i className="iconfont icon-tags"></i>
+                                <span>标签</span>
+                            </Link>
+                        </Item>
+                        <Item>
+                            <Link to="/about">
+                                <i className="iconfont icon-user1"></i>
+                                <span>关于</span>
+                            </Link>
+                        </Item>
+                    </List>
+                </StyledSideBar>
+            </>
         )
     }
 }

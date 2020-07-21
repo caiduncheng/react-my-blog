@@ -1,11 +1,11 @@
 import React, {Component} from 'react'
 import styled from 'styled-components'
-import { Title, StyledArticle, media } from '@/style/style'
+import { TitleStyle, StyledArticle, media } from '@/style/style'
 import { connect } from 'react-redux'
 import {requestGetBlogList} from '@/reducers/blogList'
 import Pagination from './Pagination'
-import { Spin } from 'antd'
 import { Link } from 'react-router-dom'
+import Loading from '@/components/Loading'
 
 const Meta = styled.div`
     position: relative;
@@ -22,18 +22,20 @@ const Meta = styled.div`
 
 `
 
-const LoadingContainer = styled.div`    
-    height: 100vh;
-    display: flex;    
-    justify-content: center;
-    align-items: center;
-`
-
 const Comment = styled.div`
     & a {
         color: #999;
     }
 `    
+
+const Title = styled.h1`
+    ${TitleStyle}
+
+    & a:hover {
+        color: #2479CC;
+        transition: color .3s;
+    }
+`
 @connect(
     state => state.blogList,
     { requestGetBlogList }
@@ -47,9 +49,7 @@ class Article extends Component {
         const { status, blogList } = this.props                
         if (status === 'pending' || status === '') {
             return (
-                <LoadingContainer>
-                    <Spin tip="加载中..."></Spin>
-                </LoadingContainer>
+                <Loading />
             )
         }
         return (            
@@ -65,11 +65,15 @@ class Article extends Component {
                             <a>0 comments</a>
                         </Comment>
                     </Meta>
-                    <Title>{blog.title}</Title>
+                    <Title>
+                        <Link to={`/article/${blog._id}`}>  
+                            {blog.title}   
+                        </Link>                   
+                    </Title>
                     <div className="content">
                         <p>Ullamco qui in nulla laboris dolor sunt culpa nostrud labore dolor.</p>
                         <p>
-                            <Link to={`/blog/${blog._id}`}>阅读全文 »</Link>
+                            <Link to={`/article/${blog._id}`}>阅读全文 »</Link>
                         </p>
                     </div>    
                 </StyledArticle>  

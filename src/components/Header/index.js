@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import {media} from '@/style/style'
 import avatar from '../../assets/duck.jfif'
 import { Link } from 'react-router-dom'
+import {connect} from 'react-redux'
 
 const Container  = styled.div`
     width: 100%;
@@ -38,27 +39,34 @@ const Bar = styled.div`
     top: 0;
     & i {
         top: 25px;
-        opacity: 1;    
+        opacity: ${({sideBarOpened}) => sideBarOpened ?  '0' : 1}
     }
-    &:after {
-        content: '';   
-        top: 16px;
-    }
-    &:before {
-        content: '';
-        top: 17px;
-    }
+   
     & i, &:after, &:before {                   
             width: 22px;
             height: 1px;
             position: absolute;
             left: 14px;
             background: #999;
-            transition: all .2s cubic-bezier(.4,.01,.165,.99) .3s;             
+            transition: all .2s cubic-bezier(.4,.01,.165,.99) .2s;             
     }   
+
+    &:after {
+        content: '';   
+        bottom: ${({sideBarOpened}) => sideBarOpened ?  '24px' : '16px'};
+        width: ${({sideBarOpened}) => sideBarOpened ?  '24px' : undefined};
+        transform: ${({sideBarOpened}) => sideBarOpened ?  'rotate(45deg)' : undefined}
+    }  
+
+    &:before {
+        content: '';
+        top: ${({sideBarOpened}) => sideBarOpened ?  '25px' : '17px'};
+        transform: ${({sideBarOpened}) => sideBarOpened ?  'rotate(-45deg)' : undefined};
+        width: ${({sideBarOpened}) => sideBarOpened ?  '24px' : undefined};
+    }
 `
 
-const Avatar = styled.a `
+const Avatar = styled.div `
     position: absolute;
     right: 10px;
     top: 10px;
@@ -75,11 +83,24 @@ const Avatar = styled.a `
     }
 `
 
+@connect(
+    state => state.app
+)
 class Header extends Component {
+
+    toggleSideBar = () => {
+        this.props.dispatch({
+            type: 'TOGGLE_SIDE_BAR',
+            payload: !this.props.sideBarOpened
+        })
+        document.body.classList.toggle('side')
+
+    }
+
     render() {
         return (
             <Container>
-                <Bar>
+                <Bar onClick={this.toggleSideBar} sideBarOpened={this.props.sideBarOpened}>
                     <i></i>
                 </Bar>
                 <Title>

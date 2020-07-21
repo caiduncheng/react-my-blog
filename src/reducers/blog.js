@@ -27,6 +27,7 @@ const failureGetBlog = () => ({
 
 
 export default (state = initState, action) => {
+    console.log(action)
     switch(action.type) {
         case types.START_GET_BLOG:
             return {
@@ -48,8 +49,7 @@ export default (state = initState, action) => {
 }
 
 const requestGetBlog = id => dispatch => {
-    dispatch(startGetBlog())
-    console.log(id)
+    dispatch(startGetBlog())        
     axios.get(`/api/blogs/${id}`).then(res => {
         const blog = res.data.data
         dispatch(successGetBlog(blog))

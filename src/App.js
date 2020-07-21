@@ -5,28 +5,22 @@ import { navList } from './constants'
 import Container from './components/Container'
 import Grid from './components/Grid'
 import ProfileCard from './components/ProfileCard'
-import TagCard from './components/TagsCard'
-import BlogList from './components/BlogList'
-import Blog from './components/Blog'
-import Categories from './components/Categories'
-import Tags from './components/Tags'
-import TagBlog from './components/TagBlog'
-import ScrollUp from './components/ScrollUp'
-import ArticleDirectory from './components/ArticleDirectory'
 import SideBar from './components/SideBar'
 import Main from './components/Main'
 import Archives from './components/Archives'
 import GlobalStyle from './style/style'
 import './style/iconfont.css'
 import Header from '@/components/Header'
+import { connect } from 'react-redux'
 
 const App = () => (
   <Router>
     <GlobalStyle />
     <div className="app">
       <Header />
-      <SideBar />
+      <SideBar />      
       <Main />
+
       {/* <TopNav navList={navList} />
       <Container  lrPadding={0} style={{marginTop: '83px'}}>
         <Grid.Row>

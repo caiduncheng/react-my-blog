@@ -34,7 +34,7 @@ class Main extends Component {
             <StyledMain>
                 <Switch>
                     <Route exact path="/" component={ArticleList} />
-                    <Route path="/blog/:id" component={Article} />
+                    <Route path="/article/:id" component={Article} />
                     <Route exact path="/archives" component={Archives} />
                     <Route exact path="/tags" component={Tags} />
                 </Switch>

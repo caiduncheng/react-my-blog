@@ -6,8 +6,11 @@ import { connect } from 'react-redux'
 import { getTagList } from '@/reducers/tag'
 import styled from 'styled-components'
 import { withRouter } from 'react-router-dom'
-import { Title, StyledArticle } from '@/style/style'
+import { TitleStyle, StyledArticle } from '@/style/style'
 
+const Title = styled.h1`
+    ${TitleStyle}
+`
 
 class Tags extends Component {        
     
