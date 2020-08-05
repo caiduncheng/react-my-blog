@@ -6,7 +6,7 @@ const StyledMeta = styled.div`
     position: relative;
     float: right;
     color: #555;
-    font-size: .9em;
+    font-size: 1.2em;
     line-height: 2;
     width: auto;
     text-align: right;

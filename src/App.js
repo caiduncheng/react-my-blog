@@ -20,7 +20,6 @@ const App = () => (
       <Header />
       <SideBar />      
       <Main />
-
       {/* <TopNav navList={navList} />
       <Container  lrPadding={0} style={{marginTop: '83px'}}>
         <Grid.Row>

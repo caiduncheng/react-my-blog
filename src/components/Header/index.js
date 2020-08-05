@@ -94,7 +94,6 @@ class Header extends Component {
             payload: !this.props.sideBarOpened
         })
         document.body.classList.toggle('side')
-
     }
 
     render() {

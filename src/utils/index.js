@@ -1,3 +1,5 @@
+import { DatePicker } from "antd"
+
 export const getPixelString = (value, defaultValue) => {
     if (value === 0) {
         return '0'
@@ -10,6 +12,18 @@ export const getPixelString = (value, defaultValue) => {
     } else {
         return value + 'px'
     }
+}
+
+export const getDateObject = date => {
+  let _date = new Date(date)
+  let Y = _date.getFullYear()
+  let M = _date.getMonth() + 1 < 10 ? '0' + (_date.getMonth() + 1) : _date.getMonth() + 1    
+  let D = _date.getDate() < 10 ? '0' + _date.getDate() : _date.getDate()
+  return {
+    year: Y,
+    month: M,
+    date: D
+  }
 }
 
 export const getPaginationArray = (currentPage, totalPage) => {

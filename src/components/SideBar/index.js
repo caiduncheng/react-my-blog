@@ -31,6 +31,18 @@ const StyledSideBar = styled.nav`
     }
 `
 
+const Mask = styled.div`
+    height: 100%;
+    opacity: .3;
+    transition: all .2s ease-in;
+    ${media.mobile} {
+        opacity: 1;
+    }
+    &:hover {
+        opacity: 1;
+    }
+`
+
 const Profile = styled.div`
     padding-top: 40px;
     padding-bottom: 10px;
@@ -145,39 +157,41 @@ class SideBar extends Component {
         return (
             <>
                 {/* <SideBarMask sideBarOpened={this.props.sideBarOpened}/> */}
-                <StyledSideBar className="behavior" sideBarOpened={this.props.sideBarOpened}>               
-                    <Profile>
-                        <a href="/">
-                            <img src={avatar} alt="avatar"/>
-                        </a>
-                        <span>Caidc的博客</span>
-                    </Profile>
-                    <List>
-                        <Item>
-                            <Link to="/">
-                                <i className="iconfont icon-home"></i>
-                                <span>首页</span>
-                            </Link>
-                        </Item>
-                        <Item>
-                            <Link to="/archives">
-                                <i className="iconfont icon-archive"></i>
-                                <span>归档</span>
-                            </Link>
-                        </Item>
-                        <Item>
-                            <Link to="/tags">
-                                <i className="iconfont icon-tags"></i>
-                                <span>标签</span>
-                            </Link>
-                        </Item>
-                        <Item>
-                            <Link to="/about">
-                                <i className="iconfont icon-user1"></i>
-                                <span>关于</span>
-                            </Link>
-                        </Item>
-                    </List>
+                <StyledSideBar className="behavior" sideBarOpened={this.props.sideBarOpened}>         
+                    <Mask>      
+                        <Profile>
+                            <a href="/">
+                                <img src={avatar} alt="avatar"/>
+                            </a>
+                            <span>Caidc的博客</span>
+                        </Profile>
+                        <List>
+                            <Item>
+                                <Link to="/">
+                                    <i className="iconfont icon-home"></i>
+                                    <span>首页</span>
+                                </Link>
+                            </Item>
+                            <Item>
+                                <Link to="/archives">
+                                    <i className="iconfont icon-archive"></i>
+                                    <span>归档</span>
+                                </Link>
+                            </Item>
+                            <Item>
+                                <Link to="/tags">
+                                    <i className="iconfont icon-tags"></i>
+                                    <span>标签</span>
+                                </Link>
+                            </Item>
+                            <Item>
+                                <Link to="/about">
+                                    <i className="iconfont icon-user1"></i>
+                                    <span>关于</span>
+                                </Link>
+                            </Item>
+                        </List>
+                    </Mask>
                 </StyledSideBar>
             </>
         )

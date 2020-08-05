@@ -48,9 +48,9 @@ export default (state = initState, action) => {
     }
 }
 
-const requestGetBlogList = () => dispatch => {
+const requestGetBlogList = (tagName = '') => dispatch => {
     dispatch(startGetBlogList())
-    return axios.get('/api/blogs').then(res => {
+    return axios.get(`/api/blogs?tag=${tagName}`).then(res => {
         const data = res.data.data
         dispatch(successGetBlogList(data))
         return 'success'

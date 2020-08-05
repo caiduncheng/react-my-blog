@@ -1,10 +1,14 @@
 import Styled from 'styled-components'
 import React from 'react'
 import ScrollToTop from 'react-scroll-up'
+import {media} from '@/style/style'
 
 const StyledScrollUp = Styled.div`
     font-size: 30px;
-    color: #1c93e0;
+    color: #1c93e0;    
+    /* ${media.mobile} {
+        display: none;
+    } */
 `
 
 const ScrollUp = () => (

@@ -51,8 +51,9 @@ export default (state = initState, action) => {
 
 export const getTagList = () => dispatch => {
     dispatch(startGetTags())
-    axios.get('/admin/api/tags').then(({data}) => {        
-        console.log(data)
+    axios.get('/admin/api/tags').then(({data}) => {                
         dispatch(successGetTags(data))
-    }) 
+    }).catch(() => {
+        dispatch(failureGetTags())
+    })
 }

@@ -17,13 +17,12 @@ const GlobalStyle = createGlobalStyle`
         box-sizing: border-box;
     }
 
-    html {
-        /* background-color: #F4F5F5; */
+    html {        
         min-height: 100%;
     }
 
-    a {        
-        color: #2479CC;    
+    a, a:hover {                
+        color: #2571B8;
         text-decoration: none;
     }
 
@@ -31,18 +30,18 @@ const GlobalStyle = createGlobalStyle`
         font-weight: bold;
     }
 
-    body {
-        /* background-color: #F4F5F5; */
+    body {        
         font-size: 16px;
         /* font-family: -apple-system, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif; */
-        font-family: "Helvetica Neue",Arial,"Hiragino Sans GB",STHeiti,"Microsoft YaHei";
+        /* font-family: "Helvetica Neue",Arial,"Hiragino Sans GB",STHeiti,"Microsoft YaHei"; */
+        font-family: "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
         color: #666;
         transition: transform .2s cubic-bezier(.4,.01,.165,.99),-webkit-transform .2s cubic-bezier(.4,.01,.165,.99);
 
         ${media.mobile} {
             &.side {
                position: fixed;
-                transform: translate3D(250px, 0, 0);
+               transform: translate3D(250px, 0, 0);
             }
         }
     }
@@ -64,7 +63,8 @@ export const StyledArticle = styled.article`
     border-top: 1px solid #fff;
     position: relative;
     word-wrap: break-word;
-    padding: 30px 0;
+    /* padding: 30px 0; */
+    padding: 50px 0;
 
     & .content {
         font-size: 16px;
@@ -78,13 +78,10 @@ export const StyledArticle = styled.article`
             font-weight: 700;
             color: #666;
         }
-    }
-    & a {
-        color: #2479CC;
-    }
+    }   
 
     & h1 a {
-        color: #333;
+        color: #333;      
     }
 
     ${media.mobile} {
