@@ -7,6 +7,7 @@ import Pagination from './Pagination'
 import { Link } from 'react-router-dom'
 import Loading from '@/components/Loading'
 import { getDateObject } from '@/utils'
+import marked from 'marked'
 
 
 const Meta = styled.div`
@@ -118,7 +119,7 @@ class Article extends Component {
                             </Link>                   
                         </Title>
                         <div className="content">
-                            <div dangerouslySetInnerHTML={{__html: blog.htmlContent}}></div>
+                            <div dangerouslySetInnerHTML={{__html: marked(blog.summary)}}></div>
                             <p>
                                 <ReadMore to={`/article/${blog._id}`}>阅读全文 →</ReadMore>
                             </p>
