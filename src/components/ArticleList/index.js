@@ -102,31 +102,31 @@ class Article extends Component {
                             <a>{tagName}下的文章</a>
                         </TagHeader>
                     ) : null }
-            {
-                _blogList.map(blog => (                                      
-                    <StyledArticle key={blog._id}>                      
-                        <Meta>
-                            <span>caidc </span>
-                            <span>发布于 </span>
-                            <span>{`${blog.dateObject.month}月${blog.dateObject.date}, ${blog.dateObject.year}`}</span>
-                            <Comment>
-                                <a>0 comments</a>
-                            </Comment>
-                        </Meta>
-                        <Title>
-                            <Link to={`/article/${blog._id}`}>  
-                                {blog.title}   
-                            </Link>                   
-                        </Title>
-                        <div className="content">
-                            <div dangerouslySetInnerHTML={{__html: marked(blog.summary)}}></div>
-                            <p>
-                                <ReadMore to={`/article/${blog._id}`}>阅读全文 →</ReadMore>
-                            </p>
-                        </div>    
-                    </StyledArticle>  
-                ))
-            }  
+                {
+                    _blogList.map(blog => (                                      
+                        <StyledArticle key={blog._id}>                      
+                            <Meta>
+                                <span>caidc </span>
+                                <span>发布于 </span>
+                                <span>{`${blog.dateObject.month}月${blog.dateObject.date}, ${blog.dateObject.year}`}</span>
+                                <Comment>
+                                    <a>0 comments</a>
+                                </Comment>
+                            </Meta>
+                            <Title>
+                                <Link to={`/article/${blog._id}`}>  
+                                    {blog.title}   
+                                </Link>                   
+                            </Title>
+                            <div className="content">
+                                <div dangerouslySetInnerHTML={{__html: marked(blog.summary || '')}}></div>
+                                <p>
+                                    <ReadMore to={`/article/${blog._id}`}>阅读全文 →</ReadMore>
+                                </p>
+                            </div>    
+                        </StyledArticle>  
+                    ))
+                }  
                 <Pagination />      
             </>
         )
