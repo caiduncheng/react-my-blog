@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, {Component, Suspense} from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import { StyledArticle, TitleStyle } from '@/style/style'

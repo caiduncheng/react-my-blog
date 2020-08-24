@@ -1,14 +1,19 @@
 import React, {Component} from 'react'
 import styled from 'styled-components'
-import ArticleList from '../ArticleList'
-import ArticleListByTag from '../ArticleList'
-import Article from '../Article'
 import { Route, Switch } from 'react-router-dom'
+import ArticleList from '../ArticleList'
+import Article from '../Article'
 import Archives from '../Archives'
 import Tags from '../Tags'
+import About from '../About'
 import Footer from '@/components/Footer'
 import { media } from '@/style/style'
-import About from '../About'
+
+// const Article = React.lazy(() => import('../Article'))
+// const ArticleList = React.lazy(() => import('../ArticleList'))
+// const Archives = React.lazy(() => import('../Archives'))
+// const Tags = React.lazy(() => import('../Tags'))
+// const About = React.lazy(() => import('../About'))
 
 const StyledMain = styled.div`
     background-color: #ffffff;
@@ -36,13 +41,13 @@ class Main extends Component {
     render() {
         return (
             <StyledMain>
-                <Switch>
+                <Switch>                   
                     <Route exact path="/" component={ArticleList} />
                     <Route path="/article/:id" component={Article} />
                     <Route exact path="/archives" component={Archives} />
                     <Route exact path="/tags" component={Tags} />
                     <Route path="/tag/:name" component={ArticleList} />
-                    <Route exact path="/about" component={About}></Route>
+                    <Route exact path="/about" component={About}></Route>                    
                 </Switch>
                 <Footer />    
             </StyledMain>
