@@ -1,19 +1,19 @@
 import React, {Component} from 'react'
 import styled from 'styled-components'
-import { Route, Switch } from 'react-router-dom'
-import ArticleList from '../ArticleList'
-import Article from '../Article'
-import Archives from '../Archives'
-import Tags from '../Tags'
-import About from '../About'
+import { Route, Switch, BrowserRouter as Router } from 'react-router-dom'
+// import ArticleList from '../ArticleList'
+// import Article from '../Article'
+// import Archives from '../Archives'
+// import Tags from '../Tags'
+// import About from '../About'
 import Footer from '@/components/Footer'
 import { media } from '@/style/style'
 
-// const Article = React.lazy(() => import('../Article'))
-// const ArticleList = React.lazy(() => import('../ArticleList'))
-// const Archives = React.lazy(() => import('../Archives'))
-// const Tags = React.lazy(() => import('../Tags'))
-// const About = React.lazy(() => import('../About'))
+const Article = React.lazy(() => import('../Article'))
+const ArticleList = React.lazy(() => import('../ArticleList'))
+const Archives = React.lazy(() => import('../Archives'))
+const Tags = React.lazy(() => import('../Tags'))
+const About = React.lazy(() => import('../About'))
 
 const StyledMain = styled.div`
     background-color: #ffffff;
@@ -41,14 +41,16 @@ class Main extends Component {
     render() {
         return (
             <StyledMain>
-                <Switch>                   
-                    <Route exact path="/" component={ArticleList} />
-                    <Route path="/article/:id" component={Article} />
-                    <Route exact path="/archives" component={Archives} />
-                    <Route exact path="/tags" component={Tags} />
-                    <Route path="/tag/:name" component={ArticleList} />
-                    <Route exact path="/about" component={About}></Route>                    
-                </Switch>
+                <React.Suspense fallback={<span>Loading...</span>}>
+                        <Switch>                   
+                            <Route exact path="/" render={props => <ArticleList {...props}/> } />
+                            <Route path="/article/:id" render={() => <Article /> } />
+                            <Route exact path="/archives" render={() => <Archives />} />
+                            <Route exact path="/tags" render={() => <Tags />} />
+                            <Route path="/tag/:name" render={() => <ArticleList />} />
+                            <Route exact path="/about" render={() => <About />} />
+                        </Switch>
+                </React.Suspense>
                 <Footer />    
             </StyledMain>
         )
