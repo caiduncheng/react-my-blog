@@ -1,13 +1,9 @@
 import React, {Component} from 'react'
 import styled from 'styled-components'
 import { Route, Switch, BrowserRouter as Router } from 'react-router-dom'
-// import ArticleList from '../ArticleList'
-// import Article from '../Article'
-// import Archives from '../Archives'
-// import Tags from '../Tags'
-// import About from '../About'
 import Footer from '@/components/Footer'
 import { media } from '@/style/style'
+import Loading from '@/components/Loading'
 
 const Article = React.lazy(() => import('../Article'))
 const ArticleList = React.lazy(() => import('../ArticleList'))
@@ -17,9 +13,6 @@ const About = React.lazy(() => import('../About'))
 
 const StyledMain = styled.div`
     background-color: #ffffff;
-    /* padding-left: 290px;
-    padding-right: 40px; */
-    /* max-width: 1390px; */
     max-width: 1250px;
     padding: 20px 70px 0px 350px;
     ${media.pad} {
@@ -41,13 +34,13 @@ class Main extends Component {
     render() {
         return (
             <StyledMain>
-                <React.Suspense fallback={<span>Loading...</span>}>
+                <React.Suspense fallback={<Loading></Loading>}>
                         <Switch>                   
                             <Route exact path="/" render={props => <ArticleList {...props}/> } />
-                            <Route path="/article/:id" render={() => <Article /> } />
+                            <Route path="/article/:id" render={props => <Article {...props}/> } />
                             <Route exact path="/archives" render={() => <Archives />} />
-                            <Route exact path="/tags" render={() => <Tags />} />
-                            <Route path="/tag/:name" render={() => <ArticleList />} />
+                            <Route exact path="/tags" render={props => <Tags {...props} />} />
+                            <Route path="/tag/:name" render={props => <ArticleList {...props}/>} />
                             <Route exact path="/about" render={() => <About />} />
                         </Switch>
                 </React.Suspense>
