@@ -6,9 +6,6 @@ import {media} from '@/style/style'
 const StyledScrollUp = Styled.div`
     font-size: 30px;
     color: #1c93e0;    
-    /* ${media.mobile} {
-        display: none;
-    } */
 `
 
 const ScrollUp = () => (
